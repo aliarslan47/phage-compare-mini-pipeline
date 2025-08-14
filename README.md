@@ -1,53 +1,9 @@
-# Phage Comparison Mini-Pipeline (T4 vs T7)
+TR:
+Bu proje, iki farklı faj genom seti arasındaki gen dizisi karşılaştırmalarını kolaylaştırmak için hazırlanmış mini bir R pipeline’ıdır.
+Pipeline, gen kümelerini (clusters) ve farklı okuma çerçevelerindeki (reading frames) amino asit dizilerini analiz eder, istatistiksel özetler çıkarır ve benzersiz "anchor" noktalarını tespit eder.
+Kullanım amacı, hızlı ve küçük ölçekli faj karşılaştırma çalışmaları için hafif ve pratik bir çözüm sunmaktır.
 
-**TR ⬇️ | EN ⬇️**
-
----
-
-## 🇹🇷 Türkçe
-
-İki faj genomu için uçtan uca küçük bir karşılaştırma pipeline’ı:
-
-- Temel istatistikler: genom uzunluğu (bp), GC(%)
-- Özellik sayıları: CDS, gene, tRNA (GFF/GenBank)
-- QC barplot’ları
-- **Dairesel (circular) genom haritası**: CDS okları, GC%, kümülatif GC-skew
-- **Alignment-free** benzerlik: k=6 k-mer cosine
-- **Synteny (BLAST’sız)**: 6 çerçevede **aa 5-mer anchor** → **genoPlotR** ile çizim  
-  *(BLAST/minimap2 gerekmez; tamamen R.)*
-
-### Gereksinimler
-R ≥ 4.3; paketler: `Biostrings`, `rtracklayer`, `seqinr`, `genoPlotR`, `circlize`, `tidyverse`, `ggplot2`
-
-Kurulum:
-```r
-install.packages(c("tidyverse","ggplot2","seqinr","circlize","genoPlotR"))
-if (!requireNamespace("BiocManager", quietly=TRUE)) install.packages("BiocManager")
-BiocManager::install(c("Biostrings","rtracklayer"))
-
-🇬🇧 English
-
-An end-to-end mini pipeline to compare two phage genomes:
-
-Basic stats: genome length (bp), GC(%)
-
-Feature counts: CDS, gene, tRNA (from GFF/GenBank)
-
-QC barplots
-
-Circular genome maps: CDS arrows, GC%, cumulative GC-skew
-
-Alignment-free similarity: k=6 k-mer cosine
-
-Synteny (no BLAST): 6-frame aa 5-mer anchors, rendered with genoPlotR
-(Runs entirely in R; no tblastx/minimap2.)
-
-Requirements
-
-R ≥ 4.3; packages: Biostrings, rtracklayer, seqinr, genoPlotR, circlize, tidyverse, ggplot2
-
-Install:
-
-install.packages(c("tidyverse","ggplot2","seqinr","circlize","genoPlotR"))
-if (!requireNamespace("BiocManager", quietly=TRUE)) install.packages("BiocManager")
-BiocManager::install(c("Biostrings","rtracklayer"))
+ENG:
+This project is a mini R pipeline designed to facilitate gene sequence comparisons between two different phage genome sets.
+The pipeline analyzes gene clusters and amino acid sequences in different reading frames, generates statistical summaries, and detects unique "anchor" points.
+It is intended to provide a lightweight and practical solution for quick, small-scale phage comparison studies.
